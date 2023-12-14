@@ -26,8 +26,8 @@ class ReservationService {
   }
 
   async #getOrder() {
-    const order = await this.#inputView.readOrder();
-    this.#eventPlanner.order = order;
+    const orders = await this.#inputView.readOrder();
+    this.#eventPlanner.orders = orders;
   }
 }
 

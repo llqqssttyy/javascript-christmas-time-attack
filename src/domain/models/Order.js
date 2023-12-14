@@ -1,6 +1,5 @@
-// 주문 정보를 담고 있는 객체
-// 메뉴 이름
-// 주문 개수
+import { SYMBOLS } from '../../statics/constants.js';
+import Validate from '../validators/Validate.js';
 
 class Order {
   #menu;
@@ -8,7 +7,12 @@ class Order {
   #amount;
 
   constructor(order) {
-    // order 형식 검사 하고 menu와 amount를 초기화 시키기
+    const [menu, amount] = order.split(SYMBOLS.orderSeperator);
+
+    Validate.menu(menu);
+    Validate.amount(amount);
+    this.#menu = menu;
+    this.#amount = Number(amount);
   }
 }
 
