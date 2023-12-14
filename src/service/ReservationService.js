@@ -17,11 +17,17 @@ class ReservationService {
     this.#outputView.printStart();
 
     await handleException(() => this.#getDate());
+    await handleException(() => this.#getOrder());
   }
 
   async #getDate() {
     const date = await this.#inputView.readDate();
     this.#eventPlanner.date = date;
+  }
+
+  async #getOrder() {
+    const order = await this.#inputView.readOrder();
+    this.#eventPlanner.order = order;
   }
 }
 
