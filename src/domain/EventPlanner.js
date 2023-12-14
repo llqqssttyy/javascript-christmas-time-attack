@@ -66,6 +66,12 @@ class EventPlanner {
     }, 0);
   }
 
+  get afterDiscount() {
+    return this.totalPrice - this.totalBenefit;
+  }
+
+  get badge() {}
+
   // 주문한 카테고리
   #getOrderCategories() {
     const orderCategories = this.#orders.reduce((orderCategories, order) => {
