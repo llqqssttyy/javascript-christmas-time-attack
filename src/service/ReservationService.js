@@ -21,6 +21,7 @@ class ReservationService {
 
   async #getDate() {
     const date = await this.#inputView.readDate();
+    this.#eventPlanner.date = date;
   }
 }
 
