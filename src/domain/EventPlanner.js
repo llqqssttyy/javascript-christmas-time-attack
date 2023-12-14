@@ -22,6 +22,12 @@ class EventPlanner {
   get orders() {
     return this.#orders.map((order) => order.info);
   }
+
+  get totalPrice() {
+    return this.#orders.reduce((totalPrice, order) => {
+      return (totalPrice += order.price);
+    }, 0);
+  }
 }
 
 export default EventPlanner;

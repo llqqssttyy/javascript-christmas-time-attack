@@ -16,6 +16,13 @@ const OutputView = {
     Console.print(order);
     Console.print(printOrder(orders));
   },
+
+  printTotalPrice(price) {
+    const { totalPrice, printTotalPrice } = OUTPUTS;
+
+    Console.print(totalPrice);
+    Console.print(printTotalPrice(price));
+  },
 };
 
 export default OutputView;

@@ -21,6 +21,7 @@ class ReservationService {
 
     this.#outputView.printEventGuide();
     this.#printOrderItems();
+    this.#printTotalPrice();
   }
 
   async #getDate() {
@@ -36,6 +37,11 @@ class ReservationService {
   #printOrderItems() {
     const { orders } = this.#eventPlanner;
     this.#outputView.printOrders(orders);
+  }
+
+  #printTotalPrice() {
+    const { totalPrice } = this.#eventPlanner;
+    this.#outputView.printTotalPrice(totalPrice);
   }
 }
 
