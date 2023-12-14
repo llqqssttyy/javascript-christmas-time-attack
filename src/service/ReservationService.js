@@ -38,9 +38,7 @@ class ReservationService {
     this.#printTotalPrice();
 
     this.#eventPlanner.findAvailableEvents();
-
-    const { benefits } = this.#eventPlanner;
-    console.log(benefits);
+    this.#printEventResult();
   }
 
   #printOrderItems() {
@@ -51,6 +49,19 @@ class ReservationService {
   #printTotalPrice() {
     const { totalPrice } = this.#eventPlanner;
     this.#outputView.printTotalPrice(totalPrice);
+  }
+
+  #printEventResult() {
+    const { benefits, gift, totalBenefit, afterDiscount, badge } =
+      this.#eventPlanner;
+    this.#outputView.printEventResult({
+      benefits,
+      gift,
+      totalBenefit,
+      afterDiscount,
+      badge,
+    });
+    // console.log(benefits, gift, totalBenefit, afterDiscount, badge);
   }
 }
 

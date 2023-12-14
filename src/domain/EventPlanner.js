@@ -1,6 +1,5 @@
 import { BADGE, ORDER_AMOUNT_MIN, SYMBOLS } from '../statics/constants.js';
 import EventCalendar from './EventCalendar.js';
-import { GIFT } from './models/Events.js';
 import Order from './models/Order.js';
 import Validate from './validators/Validate.js';
 
@@ -57,7 +56,7 @@ class EventPlanner {
   }
 
   get gift() {
-    return this.benefits[GIFT];
+    return this.benefits['증정 이벤트'];
   }
 
   get totalBenefit() {

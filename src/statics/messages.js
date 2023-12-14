@@ -37,6 +37,27 @@ const OUTPUTS = Object.freeze({
   printTotalPrice(price) {
     return `${price.toLocaleString()}원\n`;
   },
+  printGift(gift) {
+    return gift ? `${gift.menu} ${gift.amount}개` : this.nothing;
+  },
+  printBenefits(benefits) {
+    return Object.keys(benefits).length !== 0
+      ? Object.entries(benefits)
+          .map(([name, { amount, price }]) => {
+            return `${name}: -${(amount * price).toLocaleString()}원`;
+          })
+          .join('\n')
+      : this.nothing;
+  },
+  printTotalBenefit(totalBenefit) {
+    return totalBenefit === 0 ? `0원` : `-${totalBenefit.toLocaleString()}원\n`;
+  },
+  printAfterDiscount(price) {
+    return `${price.toLocaleString()}원\n`;
+  },
+  printBadge(badge) {
+    return badge ? `${this[badge]}` : this.nothing;
+  },
 });
 
 export { ERRORS, INPUTS, OUTPUTS };

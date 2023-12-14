@@ -11,17 +11,26 @@ const OutputView = {
   },
 
   printOrders(orders) {
-    const { order, printOrder } = OUTPUTS;
-
-    Console.print(order);
-    Console.print(printOrder(orders));
+    Console.print(OUTPUTS.order);
+    Console.print(OUTPUTS.printOrder(orders));
   },
 
   printTotalPrice(price) {
-    const { totalPrice, printTotalPrice } = OUTPUTS;
+    Console.print(OUTPUTS.totalPrice);
+    Console.print(OUTPUTS.printTotalPrice(price));
+  },
 
-    Console.print(totalPrice);
-    Console.print(printTotalPrice(price));
+  printEventResult({ benefits, gift, totalBenefit, afterDiscount, badge }) {
+    Console.print(OUTPUTS.gift);
+    Console.print(OUTPUTS.printGift(gift));
+    Console.print(OUTPUTS.benefit);
+    Console.print(OUTPUTS.printBenefits(benefits));
+    Console.print(OUTPUTS.totalBenefit);
+    Console.print(OUTPUTS.printTotalBenefit(totalBenefit));
+    Console.print(OUTPUTS.afterDiscount);
+    Console.print(OUTPUTS.printAfterDiscount(afterDiscount));
+    Console.print(OUTPUTS.badge);
+    Console.print(OUTPUTS.printBadge(badge));
   },
 };
 
