@@ -1,4 +1,4 @@
-import { ORDER_AMOUNT_MIN, SYMBOLS } from '../statics/constants.js';
+import { BADGE, ORDER_AMOUNT_MIN, SYMBOLS } from '../statics/constants.js';
 import EventCalendar from './EventCalendar.js';
 import { GIFT } from './models/Events.js';
 import Order from './models/Order.js';
@@ -70,7 +70,14 @@ class EventPlanner {
     return this.totalPrice - this.totalBenefit;
   }
 
-  get badge() {}
+  get badge() {
+    const totalBenefit = this.totalBenefit;
+
+    if (totalBenefit >= BADGE.santa) return 'santa';
+    if (totalBenefit >= BADGE.tree) return 'tree';
+    if (totalBenefit >= BADGE.star) return 'star';
+    else return;
+  }
 
   // 주문한 카테고리
   #getOrderCategories() {

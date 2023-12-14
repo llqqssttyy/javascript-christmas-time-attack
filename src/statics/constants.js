@@ -19,3 +19,9 @@ export const SYMBOLS = {
   seperator: ',',
   orderSeperator: '-',
 };
+
+export const BADGE = {
+  santa: 20_000,
+  tree: 10_000,
+  star: 5_000,
+};
