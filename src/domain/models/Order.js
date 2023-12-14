@@ -14,6 +14,13 @@ class Order {
     this.#menu = menu;
     this.#amount = Number(amount);
   }
+
+  get info() {
+    return {
+      menu: this.#menu,
+      amount: this.#amount,
+    };
+  }
 }
 
 export default Order;

@@ -6,11 +6,16 @@ const OutputView = {
     Console.print(OUTPUTS.start);
   },
 
-  printMenu() {
-    Console.print(OUTPUTS.order);
-    // ...
+  printEventGuide() {
+    Console.print(OUTPUTS.eventGuide);
   },
-  // ...
+
+  printOrders(orders) {
+    const { order, printOrder } = OUTPUTS;
+
+    Console.print(order);
+    Console.print(printOrder(orders));
+  },
 };
 
 export default OutputView;

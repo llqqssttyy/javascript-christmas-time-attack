@@ -18,6 +18,10 @@ class EventPlanner {
       .split(SYMBOLS.seperator)
       .map((order) => new Order(order));
   }
+
+  get orders() {
+    return this.#orders.map((order) => order.info);
+  }
 }
 
 export default EventPlanner;

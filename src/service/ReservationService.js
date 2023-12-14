@@ -11,13 +11,16 @@ class ReservationService {
     this.#inputView = inputView;
     this.#outputView = outputView;
     this.#eventPlanner = eventPlanner;
+
+    this.#outputView.printStart();
   }
 
   async start() {
-    this.#outputView.printStart();
-
     await handleException(() => this.#getDate());
     await handleException(() => this.#getOrder());
+
+    this.#outputView.printEventGuide();
+    this.#printOrderItems();
   }
 
   async #getDate() {
@@ -28,6 +31,11 @@ class ReservationService {
   async #getOrder() {
     const orders = await this.#inputView.readOrder();
     this.#eventPlanner.orders = orders;
+  }
+
+  #printOrderItems() {
+    const { orders } = this.#eventPlanner;
+    this.#outputView.printOrders(orders);
   }
 }
 
