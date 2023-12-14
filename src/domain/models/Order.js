@@ -28,6 +28,8 @@ class Order {
     return {
       menu: this.#menu,
       amount: this.#amount,
+      category: this.#category,
+      price: this.#price,
     };
   }
 
@@ -40,6 +42,7 @@ class Order {
       getValueOfField(MENU_BOARD, `${category}.${menu}`),
     );
     this.#price = getValueOfField(MENU_BOARD, `${category}.${menu}`) * amount;
+    this.#category = category;
   }
 }
 

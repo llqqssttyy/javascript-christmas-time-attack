@@ -19,9 +19,7 @@ class ReservationService {
     await handleException(() => this.#getDate());
     await handleException(() => this.#getOrder());
 
-    this.#outputView.printEventGuide();
-    this.#printOrderItems();
-    this.#printTotalPrice();
+    this.#linkEventPlanner();
   }
 
   async #getDate() {
@@ -32,6 +30,17 @@ class ReservationService {
   async #getOrder() {
     const orders = await this.#inputView.readOrder();
     this.#eventPlanner.orders = orders;
+  }
+
+  #linkEventPlanner() {
+    this.#outputView.printEventGuide();
+    this.#printOrderItems();
+    this.#printTotalPrice();
+
+    this.#eventPlanner.findAvailableEvents();
+
+    const { benefits } = this.#eventPlanner;
+    console.log(benefits);
   }
 
   #printOrderItems() {
