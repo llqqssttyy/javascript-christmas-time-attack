@@ -56,6 +56,10 @@ class EventPlanner {
     }, {});
   }
 
+  get gift() {
+    return this.benefits[GIFT];
+  }
+
   // 주문한 카테고리
   #getOrderCategories() {
     const orderCategories = this.#orders.reduce((orderCategories, order) => {
