@@ -60,6 +60,12 @@ class EventPlanner {
     return this.benefits[GIFT];
   }
 
+  get totalBenefit() {
+    return Object.values(this.benefits).reduce((total, { amount, price }) => {
+      return (total += amount * price);
+    }, 0);
+  }
+
   // 주문한 카테고리
   #getOrderCategories() {
     const orderCategories = this.#orders.reduce((orderCategories, order) => {
